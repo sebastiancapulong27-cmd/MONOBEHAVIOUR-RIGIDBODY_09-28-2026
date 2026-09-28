@@ -1,0 +1,81 @@
+// GRID BASE MOVEMENT
+// Attch this to a character object, Good for roguelikes, puzzle games, tactic games
+// The charcter snap to whole tile position rather than moving continiously
+// CODE PROPER
+
+using UnityEngine;
+
+public class GridMovement : MonoBehaviour
+{
+    public float tilesize =1.0f;
+
+    private Vector3  TargetPosition;
+    private bool isMoving = false;
+    
+    void Start()
+    {
+
+    targetpodition = SnapToGrid (transform.positions);
+        transform.position = targetPosition
+        
+    }
+    void update()
+    {
+        if (isMoving)
+        {
+            HandleInput();
+        }
+        else
+        }
+            trnadform.position = Vector3.MoveToeards(transform.position.targetposition.moveSpeed * TimeDeltaTime0;)
+                                                    
+if(Vector3.Distance(transform.position.target.Position) <0.001f) 
+        {
+            trandsform.position = targetPosition;
+            is Moving = false;
+            }
+        }
+    }
+    void HandleInput()
+    {
+        Vector3 direction = Vector.zero;
+
+        if (Input.GetKeyDown(Keycode.W)) direction = Vector.up;
+        else if (Input.GetKeyDown(Keycode.S)) direction = Vector.down;
+        else if (Input.GetKeyDown(Keycode.A)) direction = Vector.left;
+        else if (Input.GetKeyDown(Keycode.D)) direction = Vector.right;
+
+        if (direction != Vector3.zero)
+        {
+            target.Position = transform.position + direction * tilesize;
+        }
+    }
+    Vector3 SnapToGrid(Vector3 pos)
+    {
+        return new Vector3 pos(
+        Mathf.Round(pos.x / tileSize)* tileSize;
+        Mathf.Round(pos.y / tileSize)* tileSize;
+            pos.z
+         );
+    }
+}
+using UnityEngine;
+public class FreeMovement ; MonoBehavior
+{
+    public float moveSpeed = 5f;
+
+    void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("vertical");
+
+        Vee=rtical3 direction = new Vector3 (horizontal.vertical. 0f);
+        if (directiopn.magnitude >1f)
+        {
+            directiion.Normalize();
+        } 
+            transform.position += direction *moveSpeed* Time.deltaTime;
+        
+        }
+    }
+}
